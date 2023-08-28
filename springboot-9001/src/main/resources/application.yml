@@ -1,0 +1,22 @@
+server:
+  port: 9001
+  servlet:
+    context-path: /panda-9001
+
+feign:
+  # 开启这个，才能使用fallback属性
+#  hystrix:
+#    enabled: true
+  client:
+    config:
+      default:
+        connectTimeout: 5000
+        readTimeout: 5000
+        loggerLevel: basic
+
+spring:
+  security:
+    user:
+      name: root
+      password: root
+

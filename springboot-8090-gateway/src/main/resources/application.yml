@@ -1,0 +1,39 @@
+spring:
+  application:
+    name: gateway
+
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          # 默认值为 true，即默认开启从注册中心动态创建路由的功能，利用微服务名进行路由
+          enabled: true
+      routes:
+        - id: panda-9001
+          uri: lb://panda-9001
+          predicates:
+            - Path=/panda-9001/**,
+
+# localhost:8090/panda-9001/panda-9001/test/hello2 可以直接请求 9001
+#  panda-9001表明匹配规则，匹配了就 转发到 lb://panda-9001 服务，然后后面的/panda-9001/test/hello2表明路劲
+
+        - id: panda-provider
+          uri: lb://panda-provider
+          predicates:
+            - Path=/panda-provider/**,
+
+        - id: auth-8070
+          uri: lb://auth-8070
+          predicates:
+            - Path=/auth-8070/**
+
+
+#          filters:
+#            - name: BaseFilter
+#            - name: Hystrix
+#              args:
+#                name: hystrix
+#                fallbackUri: forward:/fallback
+
+# filter里头配置了name为Hystrix的filter，实际是对应HystrixGatewayFilterFactory
+# 然后指定了hystrix command的名称，及fallbackUri，注意fallbackUri要以forward开头

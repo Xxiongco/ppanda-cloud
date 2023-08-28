@@ -1,0 +1,40 @@
+server:
+  port: 10020
+
+spring:
+  application:
+    name: kafka-stream10020
+
+
+  cloud:
+    stream:
+      kafka:
+        binder:
+          auto-create-topics: true   # 自动创建topics
+          brokers: localhost:9097,localhost:9098,localhost:9099
+      bindings:
+#        kafka1-out-0:
+#          destination: destination-test-kafka
+#          content-type: application/json
+#        kafka1-in-0:
+#          destination: destination-test-kafka
+#          group: kafka1
+
+#        haha-out-0:
+#          destination: destination-haha-kafka
+#          content-type: application/json
+#        haha-in-0:
+#          destination: destination-haha-kafka
+#          group: haha1
+
+        kafka2-out-0:
+          destination: destination-kafka2-kafka
+          content-type: application/json
+        kafka2-in-0:
+          destination: destination-kafka2-kafka
+          group: kafka1
+
+
+
+
+

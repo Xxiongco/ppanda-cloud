@@ -1,0 +1,5 @@
+server:
+  port: 9012
+  servlet:
+    context-path: /panda-provider
+
