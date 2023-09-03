@@ -1,5 +1,6 @@
 package com.example.springbootkafkastream.controller;
 
+import com.panda.base.domian.Person;
 import com.panda.base.domian.Student;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.stream.function.StreamBridge;
@@ -17,24 +18,22 @@ public class TestController {
 
     private Integer count = 0;
 
-    @PostMapping("/send")
-    public boolean send(@RequestBody Student student){
+    @PostMapping("/student")
+    public boolean student(@RequestBody Student student){
 
         // 通过streamBridge直接对应的topic发送消息
         student.setId(++count);
-        streamBridge.send("kafka2-out-0", student);
-
-        return true;
+        System.out.println("student send msg: " + student);
+        return streamBridge.send("student-out-0", student);
     }
 
-    @PostMapping("/send2")
-    public boolean send2(@RequestBody Student student){
+    @PostMapping("/person")
+    public boolean person(@RequestBody Person person){
 
         // 通过streamBridge直接对应的topic发送消息
-        student.setId(++count);
-        streamBridge.send("haha-out-0", student);
-
-        return true;
+        person.setId(++count);
+        System.out.println("person send msg: " + person);
+        return streamBridge.send("person-out-0", person);
     }
     
 }

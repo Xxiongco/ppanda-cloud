@@ -8,31 +8,50 @@ spring:
 
   cloud:
     stream:
+      ## 一定得加这个，不然多个consumer无法消费到消息
+      function:
+        definition: person;student;student2;student3
       kafka:
         binder:
           auto-create-topics: true   # 自动创建topics
           brokers: localhost:9097,localhost:9098,localhost:9099
       bindings:
-#        kafka1-out-0:
-#          destination: destination-test-kafka
-#          content-type: application/json
-#        kafka1-in-0:
-#          destination: destination-test-kafka
-#          group: kafka1
-
-#        haha-out-0:
-#          destination: destination-haha-kafka
-#          content-type: application/json
-#        haha-in-0:
-#          destination: destination-haha-kafka
-#          group: haha1
-
-        kafka2-out-0:
-          destination: destination-kafka2-kafka
+        student-out-0:
+          destination: student
           content-type: application/json
-        kafka2-in-0:
-          destination: destination-kafka2-kafka
-          group: kafka1
+        student-in-0:
+          destination: student
+          group: student_group
+        student2-in-0:
+          destination: student
+          group: student_group
+        student3-in-0:
+          destination: student
+          group: student3_group
+
+#        student2-out-0:
+#          destination: student
+#          content-type: application/json
+#        student2-in-0:
+#          destination: student
+#          group: student_group
+#
+#        student3-out-0:
+#          destination: student
+#          content-type: application/json
+#        student3-in-0:
+#          destination: student
+#          group: student3_group
+
+
+
+
+        person-out-0:
+          destination: person
+          content-type: application/json
+        person-in-0:
+          destination: person
+          group: person_group
 
 
 
