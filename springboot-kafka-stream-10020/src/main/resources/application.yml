@@ -15,6 +15,8 @@ spring:
         binder:
           auto-create-topics: true   # 自动创建topics
           brokers: localhost:9097,localhost:9098,localhost:9099
+          ## 不配置就是默认的1，不管kafka的配置如何，默认是1
+          min-partition-count: 3
       bindings:
         student-out-0:
           destination: student
@@ -22,26 +24,43 @@ spring:
         student-in-0:
           destination: student
           group: student_group
+
+        student2-out-0:
+          destination: student
+          content-type: application/json
         student2-in-0:
           destination: student
-          group: student_group
+          group: student2_group
+
+
+        student3-out-0:
+          # 一个通道只能唯一对应一个topic，否则会报binder
+          destination: student
+          content-type: application/json
         student3-in-0:
           destination: student
           group: student3_group
 
+
 #        student2-out-0:
-#          destination: student
+#          destination: student2
 #          content-type: application/json
 #        student2-in-0:
-#          destination: student
+#          destination: student2
 #          group: student_group
 #
 #        student3-out-0:
-#          destination: student
+#          # 一个通道只能唯一对应一个topic，否则会报binder
+#          destination: student3
 #          content-type: application/json
 #        student3-in-0:
-#          destination: student
+#          destination: student3
 #          group: student3_group
+
+
+          # 也就是说，无法在一个服务里面配置同一个消费者组的消费者（实际上可以，会报错，但是不影响），
+          # 但是消费时只会由同一个消费者组中的消费者消费，不支持分区绑定特定的消费者
+          # 如果一个group中只有一个消费者，stream是支持的，也就是说，一个消费者组如果有多个（在一个服务中）消费者，那么将报异常
 
 
 

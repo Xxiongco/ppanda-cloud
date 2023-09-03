@@ -19,12 +19,16 @@ public class TestController {
     private Integer count = 0;
 
     @PostMapping("/student")
-    public boolean student(@RequestBody Student student){
+    public boolean student(@RequestBody Student student) throws Exception {
 
         // 通过streamBridge直接对应的topic发送消息
-        student.setId(++count);
-        System.out.println("student send msg: " + student);
-        return streamBridge.send("student-out-0", student);
+        for(int i = 0; i < 100; i ++) {
+            student.setId(++count);
+            System.out.println("student send msg: " + student);
+            streamBridge.send("student-out-0", student);
+            Thread.sleep(1000);
+        }
+        return true;
     }
 
     @PostMapping("/person")
