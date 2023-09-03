@@ -21,11 +21,18 @@ public class KafkaProducer {
     // 发送消息
     @PostMapping("/send/message")
     public void sendMessage1(@RequestBody String msg) throws Exception {
-        for (int i = 0; i < 100 ; i ++) {
+        for (int i = 0; i < 100; i++) {
             String format = String.format(STR_FORMAT, i, msg + i);
             log.info("send msg : {}", format);
             kafkaTemplate.send(topic, format);
             Thread.sleep(1000);
         }
+    }
+
+
+    @PostMapping("/send/message2")
+    public void sendMessage2(@RequestBody String msg) {
+        log.info("send msg : {}", msg);
+        kafkaTemplate.send(topic, msg);
     }
 }

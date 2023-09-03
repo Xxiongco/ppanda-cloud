@@ -39,4 +39,4 @@ spring:
 
 kafka:
   topic:
-    test: test02
+    test: 20230903-test-topic
