@@ -40,3 +40,4 @@ spring:
 kafka:
   topic:
     test: 20230903-test-topic
+    single: single
