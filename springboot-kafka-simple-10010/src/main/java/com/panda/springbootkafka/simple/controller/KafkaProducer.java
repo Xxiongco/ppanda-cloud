@@ -1,5 +1,7 @@
 package com.panda.springbootkafka.simple.controller;
 
+import com.alibaba.fastjson2.JSONObject;
+import com.panda.springbootkafka.simple.domain.KafkaMsg;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -34,5 +36,12 @@ public class KafkaProducer {
     public void sendMessage2(@RequestBody String msg) {
         log.info("send msg : {}", msg);
         kafkaTemplate.send(topic, msg);
+    }
+
+
+    @PostMapping("/send/message3")
+    public void sendMessage3(@RequestBody KafkaMsg msg) {
+        log.info("send msg : {}", msg);
+        kafkaTemplate.send(msg.getTopic(), JSONObject.toJSONString(msg.getContent()));
     }
 }

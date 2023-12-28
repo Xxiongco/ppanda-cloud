@@ -40,4 +40,8 @@ spring:
 kafka:
   topic:
     test: 20230903-test-topic
+    reset.offset: test-reset-offset
     single: single
+
+topic:
+  test.reset.offset: topic-test-reset-offset
