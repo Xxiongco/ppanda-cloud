@@ -13,6 +13,12 @@
     <file url="file://$PROJECT_DIR$/springboot-9011/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/springboot-9012/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/springboot-9012/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/springboot-kafka-consumer-10080/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/springboot-kafka-consumer-10080/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/springboot-kafka-consumer-10090/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/springboot-kafka-consumer-10090/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/springboot-kafka-product-10070/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/springboot-kafka-product-10070/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/springboot-kafka-simple-10010/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/springboot-kafka-simple-10010/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/springboot-kafka-stream-10020/src/main/java" charset="UTF-8" />

@@ -28,6 +28,9 @@
     <module>springboot-9012</module>
     <module>springboot-kafka-simple-10010</module>
     <module>springboot-kafka-stream-10020</module>
+    <module>springboot-kafka-consumer-10080</module>
+    <module>springboot-kafka-consumer-10090</module>
+    <module>springboot-kafka-product-10070</module>
     <module>springboot-security-9022</module>
   </modules>
 
